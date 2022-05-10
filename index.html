@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <!-- <link rel="stylesheet" href="index.css"> -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Vue 3: iterate through object</title>
+        <style>
+            body {
+                text-align: center;
+                color: white;
+                background-color: black;
+                background-image: url("img/sky.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-attachment: fixed;
+            }
+            [v-cloak] {
+                display: none;
+            }
+            div {
+                display: inline-block;
+            }
+            li {
+                list-style: none;
+                border: 1px white dashed;
+            }
+            figure {
+                border: 1px red dashed;
+            }
+            .flex {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+            figcaption {
+                font: italic smaller sans-serif;
+                padding: 3px;
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            ul {
+                padding-left: 0px;
+            }
+        </style>
+
+        <script src="https://unpkg.com/vue@next"></script>
+
+    </head>
+   
+    <body><p>Vue 3: test styleObject</p>
+
+        <div id="app" v-cloak>
+            <div :style="items[0].styleObject" @click="see">{{title}}</div>
+        </div>
+    
+        <script>
+
+            let app = Vue.createApp({
+
+                data: function () {
+                    return {
+                        items: [{
+                            styleObject: {
+                                color: 'red',
+                                fontSize: '1.5em',
+                                width: 200 + "px",
+                                height: 50 + "px",
+                                border: "1px red dashed"
+                            },
+                        }],
+                        title: "hello vince"
+                    }
+                },
+                methods: {
+                    see() {
+                        console.log(this.items[0])
+                    }
+                }
+            })
+
+            app.mount("#app")
+            
+        </script>
+    
+</body>
+</html>
